@@ -14,6 +14,13 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _passwordController = TextEditingController();
 
   @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -60,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                 width: MediaQuery.of(context).size.width * .9,
                 child: TextFormField(
                   validator: (value) => value!.length < 8
-                      ? "password cannot have less than 8 charecters"
+                      ? "password cannot have less than 8 characters"
                       : null,
                   controller: _passwordController,
                   obscureText: true,
@@ -88,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Enter Your email"),
+                                Text("Enter your email"),
                                 SizedBox(height: 10),
                                 TextFormField(
                                   controller: _emailController,
@@ -128,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                                           ).showSnackBar(
                                             SnackBar(
                                               content: Text(
-                                                "Password cannot be empty",
+                                                "Password reset email sent! Check your inbox.",
                                               ),
                                             ),
                                           );
@@ -147,14 +154,14 @@ class _LoginPageState extends State<LoginPage> {
                                         }
                                       });
                                 },
-                                child: Text("Cancel"),
+                                child: Text("Send Reset Link"),
                               ),
                             ],
                           );
                         },
                       );
                     },
-                    child: Text("forget password"),
+                    child: Text("Forgot password"),
                   ),
                 ],
               ),
