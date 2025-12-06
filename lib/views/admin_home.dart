@@ -30,7 +30,7 @@ class _AdminHomeState extends State<AdminHome> {
               padding: EdgeInsets.all(12),
               margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: Colors.deepPurple.shade100,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
